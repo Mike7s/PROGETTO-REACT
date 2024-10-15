@@ -53,12 +53,12 @@ function RecipeDetail() {
     <>
       <NavBar />
       <div className="h-screen flex items-center justify-center bg-Bright-green p-4">
-        <div className=" flex h-full w-full  rounded-lg shadow-lg bg-Bright-green">
-          <div className="recipe-image flex-none w-1/2">
+        <div className=" flex flex-col md:flex-row h-full w-full  rounded-lg shadow-lg bg-Bright-green">
+          <div className=" flex-none w-1/2">
             <img
               src={recipeData.image}
               alt={recipeData.title}
-              className="w-full h-full object-cover rounded-l-lg"
+              className="w-full   h-64 md:h-full object-cover rounded-l-lg"
             />
           </div>
 
