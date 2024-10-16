@@ -30,10 +30,7 @@ function RecipeDetail() {
       );
       setRecipeData(response.data);
     } catch (error) {
-      console.error(
-        "Error :",
-        error
-      );
+      console.error("Error fetching recipe:", error);
     }
   }
 
@@ -53,28 +50,29 @@ function RecipeDetail() {
     <>
       <NavBar />
       <div className="h-screen flex items-center justify-center bg-Bright-green p-4">
-        <div className=" flex flex-col md:flex-row h-full w-full  rounded-lg shadow-lg bg-Bright-green">
-          <div className=" flex-none w-1/2">
+        <div className="flex flex-col md:flex-row h-full w-full rounded-lg shadow-lg bg-Bright-green">
+          <div className="flex-none w-full md:w-1/2">
             <img
               src={recipeData.image}
               alt={recipeData.title}
-              className="w-full   h-64 md:h-full object-cover rounded-l-lg"
+              className="w-full h-64 md:h-full object-cover rounded-l-lg"
             />
           </div>
 
-          <div className="recipe-info flex-grow p-6 flex flex-col justify-center text-white">
+          <div className="flex-grow p-6 flex flex-col justify-center text-white">
             <h1 className="text-3xl font-bold text-center mb-2 text-white">
               {recipeData.title}
             </h1>
-            <div className=" mt-4">
-              <h2 className="text-lg font-semibold">Istruzioni:</h2>
-              <p className="text-white">
+
+            <div className="mt-4">
+              <h2 className="text-lg font-semibold ">Istruzioni:</h2>
+              <p className="text-white overflow-y-auto max-h-48 md:max-h-32 ">
                 {recipeData.instructions || "Nessuna istruzione disponibile"}
               </p>
             </div>
 
-            <div className="overflow-y-auto max-h-40 border-t-2 border-black pt-4 mt-4">
-              <h2 className="text-lg font-semibold">Ingredienti:</h2>
+            <div className="border-t-2 border-black pt-4 mt-4 flex-grow overflow-y-auto max-h-40 md:max-h-64 ">
+              <h2 className="text-lg font-semibold ">Ingredienti:</h2>
               <ul className="list-none">
                 {ingredients.map((ingredient) => (
                   <li key={ingredient.id} className="text-white">
