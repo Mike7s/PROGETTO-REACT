@@ -12,7 +12,7 @@ function App() {
 
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [inputStorage, setInputStorage] = useState<string>("");
-  const apiKey = "7bd437c5b57c45baba791bc1baf0608e";
+  const apiKey = import.meta.env.VITE_API_KEY;
 
   const searchRecipes = async () => {
     try {

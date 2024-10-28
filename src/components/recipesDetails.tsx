@@ -17,7 +17,7 @@ interface RecipeDetailType {
   extendedIngredients: Ingredient[];
 }
 
-const apiKey = "7bd437c5b57c45baba791bc1baf0608e";
+const apiKey = import.meta.env.VITE_API_KEY;
 
 function RecipeDetail() {
   const { recipeId } = useParams<{ recipeId: string }>();
@@ -51,7 +51,6 @@ function RecipeDetail() {
       <NavBar />
       <div className="min-h-screen flex items-center justify-center bg-Bright-green p-4">
         <div className="flex flex-col md:flex-row w-full rounded-lg shadow-lg bg-Bright-green">
-          
           <div className="flex-none w-full md:w-1/2">
             <img
               src={recipeData.image}
@@ -67,9 +66,10 @@ function RecipeDetail() {
       
             <div className="mt-4">
               <h2 className="text-lg font-semibold">Istruzioni:</h2>
-              <p className="text-white overflow-y-auto max-h-48 md:max-h-32">
-                {recipeData.instructions || "Nessuna istruzione disponibile"}
-              </p>
+              <div
+                className="text-white overflow-y-auto max-h-48 md:max-h-32"
+                dangerouslySetInnerHTML={{ __html: recipeData.instructions || "Nessuna istruzione disponibile" }}
+              />
             </div>
 
             <div className="border-t-2 border-black pt-4 mt-4 flex-grow overflow-y-auto max-h-40 md:max-h-64">
